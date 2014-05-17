@@ -1,9 +1,9 @@
 //Global variable to restart animation
 
-function restart() {
+var restart = function() {
     $(this).find('li:last').after($(this).find('li:first'));
     $(this).css({marginLeft:0});
-}
+};
 
 
 //When document loads this will execute
@@ -20,11 +20,12 @@ $(document).ready(function() {
 
 mottsDefault();
 
-//this is where the magic happens - carousel motion
+// //this is where the magic happens - carousel motion
 function carouselSpin(){
   setInterval(function(){
-      $('.fancy').fadeToggle(900, 'linear').animate({marginLeft: '-186px'}, 900, restart).fadeIn(900);
-    }, 4000);
+      $('.fancy').$(this).find('li:last').after($(this).find('li:first')).css({marginLeft:0});
+}, 4000);
+
 }
 
 carouselSpin();
@@ -40,7 +41,6 @@ $(document).on('click', '.left-arrow', function(){
 $(document).on('click', '.right-arrow', function(){
   $('.fancy').fadeToggle(900, 'linear').stop(true, false).animate({marginLeft: '-186px'}, 900, restart).fadeIn(900).stop(true, true).fadeToggle(900, 'linear').stop(true, false).animate({marginLeft: '-186px'}, 900, restart).fadeIn(900).stop(true, true);
     });
-
 
 
 
